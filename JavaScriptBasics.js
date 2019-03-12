@@ -107,7 +107,7 @@ x.forEach(function (e) {
        // alert(Number(info));
         //alert(Boolean(NaN));
         //falsy : null, 0, "", undefined, false, NaN 
-        * /
+    
 
 //object
 x = {}; // empty object

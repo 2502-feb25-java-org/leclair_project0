@@ -2,53 +2,78 @@
 
 <html lang="en-US">
 <!--Style for the forms-->
-<style>
+<!--style>
     form {
-        /* Just to center the form on the page */
-        margin: 0 auto;
-        width: 400px;
-        /* To see the outline of the form */
-        padding: 1em;
-        border: 1px solid #CCC;
-        border-radius: 1em;
+    /* Just to center the form on the page */
+    margin: 9%;
+    height: 400px;
+    width: 400px;
+    /* To see the outline of the form */
+    padding: 1em;
+    /*border: 1px solid rgb(204, 204, 204);*/
+    border-radius: 1em;
     }
 
     form div+div {
-        margin-top: 1em;
+    margin-top: 1em;
     }
 
     label {
-        /* To make sure that all labels have the same size and are properly aligned */
-        display: block;
-        width: 90px;
-        text-align: center;
+    /* To make sure that all labels have the same size and are properly aligned */
+    display: block;
+    width: 90px;
+    text-align: center;
     }
 
     header {
-        /* Just to center the form on the page */
-        margin: 0 auto;
-        width: 400px;
+    /* Just to center the form on the page */
+    margin: 0 auto;
+    width: 1250px;
     }
 
     textarea {
-        /* To make sure that all text fields have the same font settings
-                    By default, textareas have a monospace font */
-        font: 1em sans-serif;
+    /* To make sure that all text fields have the same font settings
+    By default, textareas have a monospace font */
+    font: 1em sans-serif;
 
-        /* To give the same size to all text fields */
-        width: 300px;
-        box-sizing: border-box;
+    /* To give the same size to all text fields */
+    width: 300px;
+    box-sizing: border-box;
 
-        /* To harmonize the look & feel of text field border */
-        border: 1px solid #999;
+    /* To harmonize the look & feel of text field border */
+    border: 1px solid #999;
+    }
+
+    .foot {
+    float: bottom;
+    margin
+    }-->
+
+<style>
+    .row {
+        display: inline;
     }
 
     .center {
-        display: block;
+        display: inline;
         margin-left: auto;
         margin-right: auto;
-        width: 50%;
     }
+
+    .right {
+        float: right;
+        margin-left: auto;
+        margin-right: auto;
+        width: 100%;
+    }
+
+    .left {
+        float: left;
+        margin-left: auto;
+        margin-right: auto;
+        width: 100%;
+    }
+
 </style>
 
 <head>
@@ -61,51 +86,111 @@
 </head>
 
 <body>
-    <a href="http://www.revature.com" title="Revature">
-        <img src="RevatureLogo.jpg" style="width:250px;height:100px" alt="" class="center">                 
-    </a>
+    <!--Nav Bar with drop downs-->
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <button class="navbar-toggler" type="button" data-toggle="collapse"
+                data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
-    <img src="RevatureGroup.jpg" style="width:250px;height:100px" alt="" class="middle">
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a href="Revature.html"><img alt="Image Not found" src="RevatureLogo.jpg" width="100"
+                                length="100" /></a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="Revature.html">Home <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="Contact.html">Contact</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Log In/SignUp
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="LoginExisting.html">Login (Existing User)</a>
+                            <a class="dropdown-item" href="NewUser.html">Sign Up (New User)</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="Admin.html">Admin Login Page</a>
+                        </div>
+                    </li>
+                    <li class="nav-item active">
+                            <a class="nav-link" href="projectGame.html">Game </a>
+                        </li>
 
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+                </ul>
+                <form class="form-inline my-2 my-lg-0">
+                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                </form>
+            </div>
+        </nav>
 
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item"></li>
-                <li class="nav-item active">
-                    <a class="nav-link" href="Revature.html"> Home <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="Contact.html">Contact</a>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Sign In
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="Login.html">Login (Existing User)</a>
-                        <a class="dropdown-item" href="Login.html">Login (New User)</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="https://revature.com/join-our-team/">Not sure? Click here to read
-                            more!</a>
-                    </div>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-                </li>
-            </ul>
-            <form class="form-inline my-2 my-lg-0">
-                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-            </form>
-        </div>
-    </nav>
     </header>
+
+    <div class="row">
+        <img src="RevatureGroup.jpg" style="width:350px;height:250px" alt="" class="left">
+        <img src="RevaturePic.jpg" style="width:350px;height:250px" alt="" class="center">
+        <img src="RevaturePic2.png" style="width:350px;height:250px" alt="" class="right">
+    </div>
+
+    <form id="center">
+        <div>
+            <p>Revature empowers businesses around the globe with best-in-class talent and technologies.
+                Our people work on the most innovative, challenging, and rewarding software development projects for
+                leading
+                Fortune 500 companies,
+                government organizations, and top systems integrators. We offer three distinct advantages that help
+                put
+                our
+                clients—and our people—ahead in the market:
+                a one-of-a-kind talent delivery program, unparalleled expertise, and better control of your talent
+                pipeline.
+            </p>
+        </div>
+        
+        <div class="row">
+                <img src="RevPic.png" style="width:350px;height:250px" alt="" class="left">
+                <img src="RevPic2.png" style="width:350px;height:250px" alt="" class="center">
+                <img src="RevPic3.png" style="width:350px;height:250px" alt="" class="right">
+            </div>
+
+        <div>
+            <p>
+                    <strong>Proprietary Talent Delivery Program</strong>
+                    <br>
+                    Our unique training program lets us hire, develop, and deploy top talent well versed in leading-edge and next-gen technologies. 
+                    Through continuous and intensive training focused on simulated, real-world issues, 
+                    Revature associates are able to quickly integrate into your existing technology teams.
+            </p>
+        </div>
+    </form>
+
+    <!--Footer-->
+    <div>
+        <footer>&copy; Revature LLC</footer>
+        <a href="https://www.facebook.com/revature/" title="Facebook">
+            <img src="facebookLogo.jpg" style="width:100px;height:100px" alt="" class="center">
+        </a>
+
+        <a href="https://twitter.com/WeAreRevature" title="Twitter">
+            <img src="twitterLogo.png" style="width:100px;height:100px" alt="" class="center">
+        </a>
+
+        <a href="https://www.linkedin.com/company/revature" title="LinkedIn">
+            <img src="linkedInLogo.png" style="width:100px;height:100px" alt="" class="center">
+        </a>
+
+        <a href="https://www.instagram.com/teamrevature/" title="Instagram">
+            <img src="instagramLogo.png" style="width:100px;height:100px" alt="" class="center">
+        </a>
+    </div>
+
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>
@@ -117,6 +202,7 @@
         crossorigin="anonymous"></script>
 
     <script src="index.js"></script>
+
 </body>
 
 </html>

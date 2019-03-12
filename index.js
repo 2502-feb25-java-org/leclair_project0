@@ -1,68 +1,79 @@
-'use strict';
-
-
-
-// this won't work unless the script is loaded after the "body" node is created. 
-
-//alert(document.body.innerHTML);
-
-//document.body.style.backgroundColor = 'blue';
-
-// there is a "load" event that runs on everything
-// when the window is loaded, everything is loaded
-
-// for every event, you can register a event handler with
-// a property named "on<event-name>". an event handler is a function.
-
-/*window.onload = function () {
-    document.body.style.backgroundColor = 'red';
-};*/
-
-// javascript has a special object called the global object aka "window"
-// every variable in global scope is actually stored on the window object.
-
-
-// a more flexible way to do this:
-/*window.addEventListener('load', () => {
-    let header = document.body.firstElementChild;
-    header.textContent = 'DOM changed this';
-});*/
-
-
-
-// ideally we don't wait all the way until window loads
-// that means, all images etc have downloaded
-
-// all we really need is the elements to exist in the DOM and not be null
-// DOMContentLoaded event fires sooner
-
-/*var table = document.getElementById("the-table");
-var tableAttrs = table.attributes; // Node/Element interface
-console.log(tableAttrs)
-
-for (var i = 0; i < tableAttrs.length; i++) {
-    // HTMLTableElement interface: border attribute
-    if (tableAttrs[i].nodeName.toLowerCase() == "border") 
-        table.border = "5px";
-        table.border = "solid";    
+function storeName() {
+    localStorage.name= document.getElementById("name").value;
 }
 
-/*function storeSearch(){
-    var searchBox=document.getElementById("searchbox").value;
-    sessionStorage.search=searchBox;
+function loadName() {
+    document.getElementById("name").value = localStorage.name;
 }
 
-function loadOldSearch(){
-    var searchBox=document.getElementById("searchbox");
-    searchBox.value=sessionStorage.search;
-}*/
-
-function myName(){
-    var nameBar = document.getElementById("name").value;
-    sessionStorage.name = nameBar;
+function storeEmail() {
+    localStorage.email = document.getElementById("email").value;
 }
 
-function loadmyName(){
-    var nameBar = document.getElementById("name");
-    nameBar.value = sessionStorage.name;
+function storePassword(){
+    localStorage.password = document.getElementById("password").value;
+}
+
+function storePhone(){
+    localStorage.phone = document.getElementById("phone").value;
+}
+
+function storeAddress(){
+    localStorage.address = document.getElementsById('addr').value;
+}
+
+
+function validateContact(){
+    var cName = document.forms("name").value;
+    if("name" == ""){
+        alert("Name must be filled out");
+        return false;
+    }
+}
+
+function validateEmail(){
+    var contactEmail = document.getElementById("email").value;
+    if("email" == ""){
+        alert("Email must be filled out");
+        return false;
+    }
+}
+
+function validatePassword(){
+    var pWord = document.getElementById("password").value;
+    if("password" == ""){
+        alert("Please enter a password");
+        return false;
+    }
+}
+
+function validatePhone(){
+    var phone = document.getElementById("phone").value;
+    if("phone" == ""){
+        alert("Please enter a phone number");
+        return false;
+    }
+}
+
+function validateAddr(){
+    var addrs = document.getElementById('addr');
+    if('addr' == ''){
+        alert("Please enter an address");
+        return false;
+    }
+}
+
+function validateZip(){
+    var addZip = document.getElementById('zip');
+    if('zip' == ''){
+        alert("Please enter a zipcode");
+        return false;   
+    }
+}
+
+
+function validateAdmin(){
+    if(('adName' = 'admin') && ('adPassword' == 123)){
+        //takes to game
+    }
 }
