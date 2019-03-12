@@ -1,16 +1,23 @@
 <!DOCTYPE html>
 <html>
 
+<style>
+    #projCanvas {
+        padding: 0;
+        margin: auto;
+        display: block;
+        width: 800px; 
+    }
+</style>
+
 <head>
     <title>Project 0</title>
-
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
-
 
 <body>
     <header>
@@ -40,8 +47,6 @@
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" href="LoginExisting.html">Login (Existing User)</a>
                             <a class="dropdown-item" href="NewUser.html">Sign Up (New User)</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="Admin.html">Admin Login Page</a>
                         </div>
                     </li>
                     <li class="nav-item active">
@@ -49,99 +54,105 @@
                     </li>
 
                 </ul>
-                <form class="form-inline my-2 my-lg-0">
-                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-                </form>
             </div>
         </nav>
 
     </header>
 
-    <canvas id="projCanvas" width='640' height='480' style="border:1px solid #000000;">
+    <canvas id="projCanvas" width='800' height='600' style="border:1px solid #000000;">
         Your browser does not support the HTML5 canvas tag.
     </canvas>
 
     <script>
-        p1y = p2y= 40;
-        pt = 10; 
-        ph = 100;
-        bx = by = 50;
-        xv = yv = 50;
-        bd = 6;
-        compspeed = 2;
+        var p1y = p2y = 250;
+        var pt = 10;
+        var ph = 100;
+        var bx = by = 50;
+        var xv = yv = 50;
+        var bd = 6;
+        var compspeed = 2;
 
         score1 = score2 = 0;
 
-        window.onload = function(){
+        window.onload = function () {
             ctx = document.getElementById('projCanvas');
             c = ctx.getContext('2d');
-            setInterval(update, 1000/3);
-            ctx.addEventListener('mousemove', function(e){
-                p1y = e.clienetY-ph/2;
+            setInterval(update, 1000 / 5);
+            ctx.addEventListener('mousemove', function (e) {
+                p1y = e.clienetY - (ph / 2);
             });
         }
 
-        function reset(){
-            bx = ctx.width/2;
-            by = ctx.height/2;
-            xv = -xy;
+        function reset() {
+            bx = ctx.width / 2;
+            by = ctx.height / 2;
+            xv = -xv;
             yv = 3;
         }
 
-        function update(){
+        function update() {
+            c.fillStyle = 'black';
+            c.fillRect(0, 0, ctx.width, ctx.height); //black background
+            c.fillStyle = 'white'; //paddle 1, paddle 2
+            c.fillRect(0, p1y, pt, ph);
+            c.fillRect(ctx.width - pt, p2y, pt, ph);
+            c.fillRect(bx - bd / 2, by - bd / 2, bd, bd); //ball
+            c.fillText(score1, 100, 100);
+            c.fillText(score2, ctx.width - 100, 100)
             bx += xv;
             by += yv;
-            
-            if(by < 0 && yv < 0){
+
+            if (by < 0 && yv < 0) {
                 by = -yv;
             }
 
-            if(by > ctx.height && yv > 0){
-                by = -Yv;
+            if (by > ctx.height && yv > 0) {
+                by = -yv;
             }
 
-            if(bx < 0){
-                if (by > p1y && by < p1y + ph){
+            if (bx < 0) {
+                if (by > p1y && by < p1y + ph) {
                     xv = -xv;
-                    dt = by-(p1y+ph/2);
-                    yv = dy*0.3;
+                    dy = by - (p1y + ph / 2);
+                    yv = dy * 0.3;
                 }
-                else{
+                else {
                     score2++;
                     reset();
                 }
             }
 
-            if(bx > ctx.width){
-                if (by > p2y && by < p2y + ph){
+            if (bx > ctx.width) {
+                if (by > p2y && by < p2y + ph) {
                     xv = -xv;
-                    dt = by-(p2y+ph/2);
-                    yv = dy*0.3;
+                    dt = by - (p2y + ph / 2);
+                    yv = dy * 0.3;
                 }
-                else{
+                else {
                     score1++;
                     reset();
                 }
             }
 
-            if(p2y + ph/2 < by){
+            if (p2y + ph / 2 < by) {
                 p2y += compspeed;
             }
-            else{
+            else {
                 p2y -= compspeed;
             }
 
-            c.fillStyle = 'black';
-            c.fillRect(0, 0, ctx.width, ctx.height);
-            c.fillStyle = 'white';
-            c.fillRect(0, p1y, pt, ph);
-            c.fillRect(ctx.width -pt, p2y, pt, ph);
-            c.fillRect(bx-bd/2, by-bd/2, bd, bd)
-            c.fillText(score1, 100, 100);
-            c.fillText(score2,ctx.width- 100, 100)
+            
         }
     </script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
 </body>
 
 </html>

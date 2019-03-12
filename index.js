@@ -1,4 +1,5 @@
-function storeName() {
+
+/*function storeName() {
     localStorage.name= document.getElementById("name").value;
 }
 
@@ -20,6 +21,10 @@ function storePhone(){
 
 function storeAddress(){
     localStorage.address = document.getElementsById('addr').value;
+}
+
+function storeAge(){
+    localStorage.userAge = document.getElementById('age').value;
 }
 
 
@@ -69,11 +74,4 @@ function validateZip(){
         alert("Please enter a zipcode");
         return false;   
     }
-}
-
-
-function validateAdmin(){
-    if(('adName' = 'admin') && ('adPassword' == 123)){
-        //takes to game
-    }
-}
+}*/

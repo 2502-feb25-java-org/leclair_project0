@@ -2,6 +2,18 @@
 <!Doctype html>
 <html lang=en-US>
 
+<style>
+    form {
+        /*height: 200px;
+        width: 200px;*/
+
+        /* To see the outline of the form */
+        padding: 1em;
+        border: 1px solid rgb(204, 204, 204);
+        border-radius: 1px;
+    }
+</style>
+
 <head>
     <title>Sign up Page</title>
     <meta charset="utf-8">
@@ -41,22 +53,12 @@
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item" href="LoginExisting.html">Login (Existing User)</a>
                                 <a class="dropdown-item" href="NewUser.html">Sign Up (New User)</a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="Admin.html">Admin Login Page</a>
                             </div>
-                        </li>
-                        <li class="nav-item active">
-                            <a class="nav-link" href="projectGame.html">Game </a>
                         </li>
 
                     </ul>
-                    <form class="form-inline my-2 my-lg-0">
-                        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-                    </form>
                 </div>
             </nav>
-
         </header>
     </div>
 
@@ -66,13 +68,34 @@
             <main>
                 <form id="f1">
                     <fieldset>
+                        <div class="jumbotron">
+                            <legend>Personal Information</legend>
+                        </div>
                         <div class="form-group">
-                            <label for="name">Enter your name: </label>
+                            <label for="name">Enter your first name: </label>
                         </div>
 
                         <div class="form-group">
-                            <input type="text" onchange="storeName(),validateContact()" class="form-control" name="name"
-                                placeholder="Name" id="name" required>
+                            <input type="text" onchange="storeFName()" class="form-control" name="firstname"
+                                placeholder="First Name" id="fname" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="name">Enter your middle name: </label>
+                        </div>
+
+                        <div class="form-group">
+                            <input type="text" onchange="storeMName()" class="form-control" name="middlename"
+                                placeholder="Middle Name" id="mname">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="name">Enter your last name: </label>
+                        </div>
+
+                        <div class="form-group">
+                            <input type="text" onchange="storeLName(), validateName()" class="form-control"
+                                name="lastname" placeholder="Last Name" id="lname" required>
                         </div>
 
                         <div class="form-group">
@@ -135,8 +158,8 @@
                         </div>
 
                         <div class="form-group">
-                            <input type="text" onchange="" class="form-control" name="addr" placeholder="Address"
-                                id="addr" required>
+                            <input type="text" onchange="storeAddress()" class="form-control" name="addr"
+                                placeholder="Address" id="addr" required>
                         </div>
 
                         <div class="form-group">
@@ -144,8 +167,8 @@
                         </div>
 
                         <div class="form-group">
-                            <input type="number" onchange="" class="form-control" name="zip"
-                                placeholder="5-Digit Postal Code, EX: 01540" id="zip" required>
+                            <input type="number" onchange="storeZip()" class="form-control" name="zip"
+                                placeholder="5-Digit Postal Code, EX: 01540" id="zip" pattern="[0-9]{5}" required>
                         </div>
 
                     </fieldset>
@@ -187,6 +210,68 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
+    <script>
+        function storeFName() {
+            localStorage.firstname = document.getElementById("fname").value;
+        }
+
+        function storeMName() {
+            localStorage.mname = document.getElementById("mname").value;
+        }
+
+        function storeLName() {
+            localStorage.lastname = document.getElementById("lname").value;
+        }
+
+        function validateName() {
+            var fn = document.getElementById('fname').value;
+            var mn = document.getElementById('mname').value;
+            var ln = document.getElementById('lname').value;
+            if (fn == '') {
+                alert("Please enter a first name");
+                return false;
+            }
+
+            if (fn == mn) {
+                alert("Names cannot be the same");
+                return false;
+            }
+
+            if (fn == ln) {
+                alert("Names cannot be the same");
+                return false;
+            }
+
+            if (mn == ln) {
+                alert("Names cannot be the same");
+                return false;
+            }
+        }
+
+        function storeEmail() {
+            localStorage.email = document.getElementById("email").value;
+        }
+
+        function storePassword() {
+            localStorage.password = document.getElementById("password").value;
+        }
+
+        function storePhone() {
+            localStorage.phone = document.getElementById("phone").value;
+        }
+
+        function storeAddress() {
+            localStorage.address = document.getElementsById('addr').value;
+        }
+
+        function storeAge() {
+            localStorage.userAge = document.getElementById('age').value;
+        }
+
+        function storeZip() {
+            localStorage.zCode = document.getElementById('zip').value;
+        }
+    </script>
 </body>
 
 </html>

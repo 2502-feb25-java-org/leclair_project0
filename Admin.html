@@ -14,6 +14,7 @@
     <title>Sign up Page</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!--<meta http-equiv="refresh" content="0; url=C:\MattGithub\leclair_project0\projectGame.html">-->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
@@ -70,7 +71,7 @@
     <!--This is the field to fill out-->
     <div class="container">
         <main>
-            <form>
+            <form method="POST">
                 <fieldset>
                     <div class="jumbotron">
                         <legend>Welcome to our Administrative Login Page</legend>
@@ -82,8 +83,8 @@
                     </div>
 
                     <div class="form-group">
-                        <input type="text" onchange="storeName()" class="form-control" name="name" placeholder="Username"
-                            id="name" required>
+                        <input type="text" onchange="storeAdUsername(), validateAdUserName()" class="form-control" name="name"
+                            placeholder="Username" id="adUname" required>
                     </div>
 
                     <div class="form-group">
@@ -91,14 +92,14 @@
                     </div>
 
                     <div class="form-group">
-                        <input type="password" class="form-control" name="password" placeholder="Password"
+                        <input type="password" onchange="storeAdPWord()" class="form-control" name="password" placeholder="Password"
                             id="adPassword" required>
                     </div>
 
                 </fieldset>
 
                 <div>
-                    <input type="submit" value="Submit">
+                    <input type="submit" value="Submit" onclick="redirect()">
                 </div>
             </form>
         </main>
@@ -124,7 +125,7 @@
         <a href="https://www.instagram.com/teamrevature/" title="Instagram">
             <img src="instagramLogo.png" style="width:100px;height:100px" alt="" class="center">
         </a>
-        </div>
+    </div>
 </body>
 
 </html>

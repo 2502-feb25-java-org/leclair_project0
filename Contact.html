@@ -54,19 +54,10 @@
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item" href="LoginExisting.html">Login (Existing User)</a>
                                 <a class="dropdown-item" href="NewUser.html">Sign Up (New User)</a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="Admin.html">Admin Login Page</a>
                             </div>
-                        </li>
-                        <li class="nav-item active">
-                            <a class="nav-link" href="projectGame.html">Game </a>
                         </li>
 
                     </ul>
-                    <form class="form-inline my-2 my-lg-0">
-                        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-                    </form>
                 </div>
             </nav>
 
@@ -79,6 +70,9 @@
             <main>
                 <form id="f1">
                     <fieldset>
+                            <div class="jumbotron">
+                                    <legend>Personal Information</legend>
+                                </div>
                         <div class="form-group">
                             <label for="name">Enter your name: </label>
                         </div>
@@ -148,8 +142,8 @@
                         </div>
 
                         <div class="form-group">
-                            <input type="text" onchange="" class="form-control" name="addr" placeholder="Address"
-                                id="addr" required>
+                            <input type="text" onchange="" class="form-control" name="addr"
+                                placeholder="House # + Street, City, State" id="addr" required>
                         </div>
 
                         <div class="form-group">
@@ -200,6 +194,83 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
+    <script>
+        function storeName() {
+            localStorage.name = document.getElementById("name").value;
+        }
+
+        function loadName() {
+            document.getElementById("name").value = localStorage.name;
+        }
+
+        function storeEmail() {
+            localStorage.email = document.getElementById("email").value;
+        }
+
+        function storePassword() {
+            localStorage.password = document.getElementById("password").value;
+        }
+
+        function storePhone() {
+            localStorage.phone = document.getElementById("phone").value;
+        }
+
+        function storeAddress() {
+            localStorage.address = document.getElementsById('addr').value;
+        }
+
+        function storeAge() {
+            localStorage.userAge = document.getElementById('age').value;
+        }
+
+        function validateContact() {
+            var cName = document.getElementById("name").value;
+            if ("name" == "") {
+                alert("Name must be filled out");
+                return false;
+            }
+        }
+
+        function validateEmail() {
+            var contactEmail = document.getElementById("email").value;
+            if ("email" == "") {
+                alert("Email must be filled out");
+                return false;
+            }
+        }
+
+        function validatePassword() {
+            var pWord = document.getElementById("password").value;
+            if ("password" == "") {
+                alert("Please enter a password");
+                return false;
+            }
+        }
+
+        function validatePhone() {
+            var phone = document.getElementById("phone").value;
+            if ("phone" == "") {
+                alert("Please enter a phone number");
+                return false;
+            }
+        }
+
+        function validateAddr() {
+            var addrs = document.getElementById('addr');
+            if ('addr' == '') {
+                alert("Please enter an address");
+                return false;
+            }
+        }
+
+        function validateZip() {
+            var addZip = document.getElementById('zip');
+            if ('zip' == '') {
+                alert("Please enter a zipcode");
+                return false;
+            }
+        }
+    </script>
 
 </body>
 
