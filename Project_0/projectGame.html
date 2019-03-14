@@ -6,7 +6,7 @@
         padding: 0;
         margin: auto;
         display: block;
-        width: 800px; 
+        width: 800px;
     }
 </style>
 
@@ -19,7 +19,7 @@
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 
-<body>
+<body style="background-color:lightblue">
     <header>
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -30,8 +30,9 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item">
-                        <a href="Revature.html"><img alt="Image Not found" src="RevatureLogo.jpg" width="100"
-                                length="100" /></a>
+                        <a href="Revature.html">
+                            <img alt="Image Not found" src="RevatureLogo.jpg" width="100" length="100" />
+                        </a>
                     </li>
                     <li class="nav-item active">
                         <a class="nav-link" href="Revature.html">Home <span class="sr-only">(current)</span></a>
@@ -64,12 +65,12 @@
     </canvas>
 
     <script>
-        var p1y = p2y = 250;
-        var pt = 10;
-        var ph = 100;
-        var bx = by = 50;
-        var xv = yv = 50;
-        var bd = 6;
+        var p1y = p2y = 40;
+        var pt = 10; //paddle thickness (width)
+        var ph = 100; //paddle height
+        var bx = by = 50; //ball x and ball y
+        var xv = yv = 4; //x and y speed (velocity)
+        var bd = 6; //size of ball
         var compspeed = 2;
 
         score1 = score2 = 0;
@@ -77,8 +78,9 @@
         window.onload = function () {
             ctx = document.getElementById('projCanvas');
             c = ctx.getContext('2d');
-            setInterval(update, 1000 / 5);
+            setInterval(update, 1000 / 30);
             ctx.addEventListener('mousemove', function (e) {
+                debugger;
                 p1y = e.clienetY - (ph / 2);
             });
         }
@@ -91,6 +93,9 @@
         }
 
         function update() {
+            bx += xv;
+            by += yv;
+
             c.fillStyle = 'black';
             c.fillRect(0, 0, ctx.width, ctx.height); //black background
             c.fillStyle = 'white'; //paddle 1, paddle 2
@@ -99,9 +104,7 @@
             c.fillRect(bx - bd / 2, by - bd / 2, bd, bd); //ball
             c.fillText(score1, 100, 100);
             c.fillText(score2, ctx.width - 100, 100)
-            bx += xv;
-            by += yv;
-
+            
             if (by < 0 && yv < 0) {
                 by = -yv;
             }
@@ -126,7 +129,7 @@
                 if (by > p2y && by < p2y + ph) {
                     xv = -xv;
                     dt = by - (p2y + ph / 2);
-                    yv = dy * 0.3;
+                    yv = by * 0.3;
                 }
                 else {
                     score1++;
@@ -140,8 +143,6 @@
             else {
                 p2y -= compspeed;
             }
-
-            
         }
     </script>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"

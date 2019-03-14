@@ -2,10 +2,6 @@
 <html lang="en-US">
 
 <style>
-    .row {
-        display: inline;
-    }
-
     .center {
         display: inline;
         margin-left: auto;
@@ -25,7 +21,6 @@
         margin-right: auto;
         width: 100%;
     }
-
 </style>
 
 <head>
@@ -37,13 +32,12 @@
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 
-<body>
+<body style="background-color:lightblue">
     <!--Nav Bar with drop downs-->
     <header>
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <button class="navbar-toggler" type="button" data-toggle="collapse"
-                data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                aria-label="Toggle navigation">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light" id="tabs">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
 
@@ -76,7 +70,12 @@
 
     </header>
 
-    <div class="row">
+    <!--<div class="jumbotron">
+        <legend><strong>Welcome to Revature!</strong></legend>
+        <p>Come join our success!</p>
+    </div>-->
+
+    <div class="row" style="background-color:lightblue">
         <img src="RevatureGroup.jpg" style="width:350px;height:250px" alt="" class="left">
         <img src="RevaturePic.jpg" style="width:350px;height:250px" alt="" class="center">
         <img src="RevaturePic2.png" style="width:350px;height:250px" alt="" class="right">
@@ -84,7 +83,8 @@
 
     <form id="center">
         <div>
-            <p>Revature empowers businesses around the globe with best-in-class talent and technologies.
+            <p style="background-color:orange">Revature empowers businesses around the globe with best-in-class talent
+                and technologies.
                 Our people work on the most innovative, challenging, and rewarding software development projects for
                 leading
                 Fortune 500 companies,
@@ -96,42 +96,44 @@
                 pipeline.
             </p>
         </div>
-        
-        <div class="row">
-                <img src="RevPic.png" style="width:350px;height:250px" alt="" class="left">
-                <img src="RevPic2.png" style="width:350px;height:250px" alt="" class="center">
-                <img src="RevPic3.png" style="width:350px;height:250px" alt="" class="right">
-            </div>
+
+        <div class="row" style="background-color:lightblue">
+            <img src="RevPic.png" style="width:350px;height:250px" alt="" class="left">
+            <img src="RevPic2.png" style="width:350px;height:250px" alt="" class="center">
+            <img src="RevPic3.png" style="width:350px;height:250px" alt="" class="right">
+        </div>
 
         <div>
-            <p>
-                    <strong>Proprietary Talent Delivery Program</strong>
-                    <br>
-                    Our unique training program lets us hire, develop, and deploy top talent well versed in leading-edge and next-gen technologies. 
-                    Through continuous and intensive training focused on simulated, real-world issues, 
-                    Revature associates are able to quickly integrate into your existing technology teams.
+            <p style='background-color:orange'>
+                <strong>Proprietary Talent Delivery Program</strong>
+                <br>
+                Our unique training program lets us hire, develop, and deploy top talent well versed in leading-edge and
+                next-gen technologies.
+                Through continuous and intensive training focused on simulated, real-world issues,
+                Revature associates are able to quickly integrate into your existing technology teams.
             </p>
         </div>
     </form>
 
     <!--Footer-->
     <div>
-        <footer>&copy; Revature LLC</footer>
-        <a href="https://www.facebook.com/revature/" title="Facebook">
-            <img src="facebookLogo.jpg" style="width:100px;height:100px" alt="" class="center">
-        </a>
+        <footer style="background-color:lightblue">&copy; Revature LLC
+            <a href="https://www.facebook.com/revature/" title="Facebook">
+                <img src="facebookLogo.jpg" style="width:100px;height:100px" alt="" class="center">
+            </a>
 
-        <a href="https://twitter.com/WeAreRevature" title="Twitter">
-            <img src="twitterLogo.png" style="width:100px;height:100px" alt="" class="center">
-        </a>
+            <a href="https://twitter.com/WeAreRevature" title="Twitter">
+                <img src="twitterLogo.png" style="width:100px;height:100px" alt="" class="center">
+            </a>
 
-        <a href="https://www.linkedin.com/company/revature" title="LinkedIn">
-            <img src="linkedInLogo.png" style="width:100px;height:100px" alt="" class="center">
-        </a>
+            <a href="https://www.linkedin.com/company/revature" title="LinkedIn">
+                <img src="linkedInLogo.png" style="width:100px;height:100px" alt="" class="center">
+            </a>
 
-        <a href="https://www.instagram.com/teamrevature/" title="Instagram">
-            <img src="instagramLogo.png" style="width:100px;height:100px" alt="" class="center">
-        </a>
+            <a href="https://www.instagram.com/teamrevature/" title="Instagram">
+                <img src="instagramLogo.png" style="width:100px;height:100px" alt="" class="center">
+            </a>
+        </footer>
     </div>
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"

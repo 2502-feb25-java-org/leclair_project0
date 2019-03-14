@@ -4,12 +4,9 @@
 
 <style>
     form {
-        /*height: 200px;
-        width: 200px;*/
-
         /* To see the outline of the form */
         padding: 1em;
-        border: 1px solid rgb(204, 204, 204);
+        border: 1px solid black;
         border-radius: 1px;
     }
 </style>
@@ -22,7 +19,7 @@
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 
-<body>
+<body style="background-color:lightblue">
     <script src="index.js"></script>
     <div class="container">
         <!--Nav Bar with drop downs-->
@@ -70,9 +67,10 @@
             <main>
                 <form id="f1">
                     <fieldset>
-                            <div class="jumbotron">
-                                    <legend>Personal Information</legend>
-                                </div>
+                        <div class="jumbotron">
+                            <legend>Contact us!</legend>
+                            <p>Revature is here to listen! Give us some information and we can get back to you!</p>
+                        </div>
                         <div class="form-group">
                             <label for="name">Enter your name: </label>
                         </div>
@@ -92,20 +90,20 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="password">Enter your password: </label>
-                        </div>
-
-                        <div class="form-group">
-                            <input type="password" onchange="storePassword(), validatePassword()" class="form-control"
-                                name="password" placeholder="Password" id="password" required>
-                        </div>
-
-                        <div class="form-group">
                             <label for="phone">Enter your Phone: </label>
                         </div>
                         <div class="form-group">
                             <input type="tel" onchange="storePhone(), validatePhone()" class="form-control" name="phone"
                                 placeholder="XXX-XXX-XXXX" id="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required>
+                        </div>
+
+                        <div class="form-group">
+                                <label for="feedback">Enter your Feedback: </label>
+                        </div>
+
+                        <div class="form-group">
+                            <input type="text" onchange="validateName(),storeLName()" class="form-control"
+                                name="feedback" placeholder="Feedback" id="feed" required>
                         </div>
                     </fieldset>
 
@@ -120,6 +118,10 @@
                             <label for="others">Others<input type="radio" name="gender" id="others" /></label>
                         </label>
                     </div>
+
+                    <div>
+                        <input type="submit" value="Submit">
+                    </div>
                 </form>
             </main>
         </div>
@@ -127,13 +129,13 @@
 
     <br>
 
-    <!--This is the second field to fill out-->
+    <!--This is the second field to fill out
     <div class="container">
         <div>
             <main>
                 <form id="f2">
                     <fieldset>
-                        <div class="jumbotron">
+                        <div class="jumbotron" width = "50px">
                             <legend>Address</legend>
                         </div>
 
@@ -158,12 +160,12 @@
                     </fieldset>
 
                     <div>
-                        <input type="submit" value="Submit">
+                        <input type="submit" value="Submit" >
                     </div>
                 </form>
             </main>
         </div>
-    </div>
+    </div>-->
 
     <!--Footer-->
     <div>

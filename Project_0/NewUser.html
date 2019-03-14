@@ -9,7 +9,7 @@
 
         /* To see the outline of the form */
         padding: 1em;
-        border: 1px solid rgb(204, 204, 204);
+        border: 1px solid black;
         border-radius: 1px;
     }
 </style>
@@ -22,7 +22,7 @@
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 
-<body>
+<body style="background-color:lightblue">
     <div class="container">
         <!--Nav Bar with drop downs-->
         <header>
@@ -94,7 +94,7 @@
                         </div>
 
                         <div class="form-group">
-                            <input type="text" onchange="storeLName(), validateName()" class="form-control"
+                            <input type="text" onchange="validateName(),storeLName()" class="form-control"
                                 name="lastname" placeholder="Last Name" id="lname" required>
                         </div>
 
@@ -108,19 +108,10 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="password">Enter your password: </label>
-                        </div>
-
-                        <div class="form-group">
-                            <input type="password" onchange="storePassword(), validatePassword()" class="form-control"
-                                name="password" placeholder="Password" id="password" required>
-                        </div>
-
-                        <div class="form-group">
                             <label for="phone">Enter your Phone: </label>
                         </div>
                         <div class="form-group">
-                            <input type="tel" onchange="storePhone(), validatePhone()" class="form-control" name="phone"
+                            <input type="tel" onchange="validatePhone(),storePhone()" class="form-control" name="phone"
                                 placeholder="XXX-XXX-XXXX" id="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required>
                         </div>
                     </fieldset>
