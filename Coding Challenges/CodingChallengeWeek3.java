@@ -5,7 +5,7 @@ public class CodingChallengeWeek3
 	public static void main(String[] args) 
 	{
 		ArrayList<String> names = new ArrayList<String>();
-		ArrayList<String> palNames = new ArrayList<String>(); //should contain six names
+		ArrayList<String> palNames = new ArrayList<String>(); 
 		
 		names.add("karan");
 		names.add("madam");
