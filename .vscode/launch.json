@@ -1,0 +1,18 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - Max",
+            "request": "launch",
+            "mainClass": "com.Revature.Max",
+            "projectName": "BasicOfOOP"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - App",
+            "request": "launch",
+            "mainClass": "com.Revature.App",
+            "projectName": "BasicOfOOP"
+        }
+    ]
+}
