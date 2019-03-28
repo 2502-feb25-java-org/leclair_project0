@@ -1,0 +1,6 @@
+1553631075177	Rename resource 'Employee.html'
+1553634992570	Encapsulate field 'empRole'
+1553635443248	Move 'Manager.html' to 'webapp'
+1553721515482	Rename type 'ReimburseServlet'
+1553787761661	Rename type 'ConnectionFactory'
+1553793561170	Delete element

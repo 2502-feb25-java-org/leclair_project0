@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+  <style>
+    html{
+      background-color: cyan;
+    }
+    h1{
+      color: green;
+    }
+    #welcome{
+      color: red;
+      font-size: 22pt;
+    }
+    p2{
+      font-size: 13pt;
+      color: blue;
+      text-align: center;
+    }
+    form{
+      border: 5px solid red;
+      margin: 0px auto;
+      margin-top: 100px;
+      width: 350px;
+      height: 250px;
+    }
+
+    body{
+      margin: 0 auto;
+      padding: 0;
+    }
+
+    #employee{
+      border: solid black;
+      background-color: white;
+      float: left;
+      margin-left: 25%;
+    }
+    #manager{
+      border: solid black;
+      background-color: white;
+      float: right;
+      margin-right: 25%;
+    }
+    #signIn{
+      width: 100px;
+      float: center;
+    }
+    
+    #home{
+      margin-left: 10px;
+  		margin-top: 10px;
+    }
+  </style>
+  
+<h1 align= "center">$ <u>LeClair Reimbursements</u> $</h1>
+
+<head id="headTag">
+  <title>LeClair Reimbursements</title>
+  <p id= "welcome" align= "center"><strong>Welcome to LeClair Reimbursements!</strong></p>
+  <hr>
+  
+  <div align= "center">
+    <p2>At LeClair Reimbursements we look to return your money to you as soon as we can! We understand that money is important, and that is why we try to make our reimbursement process quick and easy -- returning your money to you ASAP!</p2>
+  </div>
+  
+  <hr>
+</head>
+
+<body>
+  <div align="center">
+    <p>As employees of LeClair Reimbursements, you are able to Login and then proceed to submit a new reimbursement request, or view past requests/view their status (whether submitted, pending, aproved.)</p>
+    <p>Managers will then be able to go into our system and process these requests. Pending requests will either be <strong><i>resolved</i></strong>, or <strong><i>denied</i></strong>.</p>
+  </div>
+  
+  <form class="container">
+    <h3 align= "center">Sign into your work profile below.</h3><hr>
+    <h4>Click one of the follow options:</h4>
+    
+    <input type="button" onclick="window.location.href = 'employeeLogin.html';" value="Employee"/>
+   	<input type="button" onclick="window.location.href = 'managerLogin.html';" value="Manager"/>
+    
+    <br>
+  
+  </form>
+</body>

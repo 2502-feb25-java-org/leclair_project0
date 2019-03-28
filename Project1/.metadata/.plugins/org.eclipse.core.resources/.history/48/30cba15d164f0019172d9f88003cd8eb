@@ -1,0 +1,36 @@
+import java.util.Scanner;
+
+public class IntToHex 
+{
+	public static double num; 
+	
+	public static void main(String[] args) 
+	{
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.println("Enter a number: ");
+		num = sc.nextDouble();
+		
+		getHex(num);
+	}
+	
+	public static double getHex(double n)
+	{
+		double hexNum = 0;
+		
+		if(num % 16 == 0)
+			System.out.println("Your number in hexidecimal: " + num);
+		else if(num % 16 < 10)
+			System.out.println("Your number in hexidecimal: " + ((int)(num/16))+(num%16));
+		else if(num % 16 > 10)
+		{
+			double remainder = num % 16;
+			double currentNum = num/16;
+			
+			getHex(remainder);
+			getHex(currentNum);
+		}
+		
+		return hexNum;
+	}
+}

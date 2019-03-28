@@ -1,0 +1,61 @@
+
+public class NodeTester
+{
+	class Node 
+	{
+		public int iData; //index of node
+		public double nData; //data on node
+		public Node next; //next node
+		
+		public Node(int i, double n)
+		{
+			this.iData = i;
+			this.nData = n;
+		}
+		
+		public void displayNode()
+		{
+			System.out.println(iData);
+		}
+	}
+	
+	//first node(link) in the LinkedList
+	private Node head;
+	
+	public NodeTester()
+	{
+		head = null;
+	}
+	
+	public boolean isEmpty()
+	{
+		return(head == null);
+	}
+	
+	//adds node to the head of the Linked List
+	public void addHead(int i, double d) //takes new index, and data
+	{
+		Node n = new Node(i, d);
+		n.next = head;
+		head = n;
+	}
+	
+	//deletes head node from the Linked List
+	public Node deleteHead(int i, double d)//removes head
+	{
+		Node temp = head; //temporary placeholder
+		head = head.next;
+		return temp;
+	}
+	
+	//displays linked list
+	public void displayList()
+	{
+		while(head!= null)
+		{
+			head.displayNode();
+			head = head.next;
+		}
+		System.out.println();
+	}
+}

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+
+<style>
+form{
+	border:10px solid black;
+}
+
+</style>
+  
+  <head>
+    <h1 align="center">Employee Login Page</h1>
+  	<hr size="10" color= "red">
+	</head>
+
+<body>
+  <p align="center">As an employee, you have the ability to view any of your past reimbursement requests, as well as check the status of any current requests.</p>
+  <form align= "center">
+    <label>Username:</label>
+    <input type= "text" id= "uName" onchange="validateUserName()" required>
+    <label>Password:</label>
+    <input type= "text" id="pWord" onchange="validatePassword()" required>
+    <br><br><br>
+    <input type = submit>
+  </form>
+  
+</body>
+</html>

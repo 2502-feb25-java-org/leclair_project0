@@ -1,0 +1,5 @@
+package com.matt.pojos;
+
+public class User {
+
+}

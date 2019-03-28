@@ -1,0 +1,40 @@
+import java.util.Scanner;
+
+public class IntToHex 
+{
+	public static double num; 
+	static int remainder;
+	static String result = "";
+		
+	public static void main(String[] args) 
+	{
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.println("Enter a number: ");
+		num = sc.nextDouble();
+		
+		getHex(num);
+	}
+	
+	public static String getHex(double n)
+	{
+		char[] hexnums = {'A','B','C','D','E','F'};
+		
+		while(num > 0)
+		{
+			remainder = (int)(num % 16);
+			num = num/16;
+			
+			if(num > 10 && remainder > 10)
+			{
+				//result = hexnums[remainder] + result;
+				getHex(num);
+			}
+			
+			else
+				result = hexnums[remainder] + result;
+		}
+		System.out.println("Your Number is Hex: " + num);
+		return ("Your Number is Hex: " + n);
+	}
+}

@@ -1,0 +1,64 @@
+window.onload = function(){
+	loadLandingView();
+}
+/*
+ * This function will use AJAX to send a request
+ * to our LoadViewServlet, which will return our
+ * landing page partial html
+ * 
+ * We will then use our response (the html) as
+ * the inner HTML of our view div
+ */
+
+function loadLandingView()
+{
+	console.log('in load landing view method');
+	var xhr = new XMLHttpRequest(); //creates AJAX object
+	xhr.onreadystatechange = function(){
+		//here is where we manipulate our response...whenever we get it
+		if(xhr.readyState == 4)
+		{
+			if(xhr.status == 200)
+			{
+				//success
+				//response will be HTML
+				console.log('in success of landing view method. about to apply event listener');
+				$('#view').html(xhr.responseText);
+				$('#login').on('click', login);
+			}
+			if(xhr.status > 399)
+			{
+				console.log("Error.");
+			}	
+		}
+	}
+	
+	xhr.open("GET", "landing.view");
+	xhr.send();
+}
+
+function login()
+{
+	console.log('in login method');
+	
+	var name = $('#username').val();
+	var pw = $('#password').val();
+	var user = {
+			username: name,
+			password, pw
+	};
+	
+	var xhr = new XMLHttpRequest();
+	xhr.onreadystatechange = function (){
+		//get response body and console.log it
+		if(xhr.readState == 4 && xhr.status == 200)
+		{
+			console.log(xhr.responseText);
+		}
+	}
+	
+	xhr.open("POST", "login");
+	xhr.setRequestHeader("Content-type", "application/json");
+	xhr.send(JSON.stringify(user));
+	
+}

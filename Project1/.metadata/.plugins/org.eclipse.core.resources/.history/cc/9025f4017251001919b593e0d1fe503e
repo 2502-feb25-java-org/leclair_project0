@@ -1,0 +1,64 @@
+package com.matt.util;
+
+import java.io.FileReader;
+import java.io.IOException;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.Properties;
+
+public class AppConnection 
+{
+	public static void main(String[] args) 
+	{
+		// Connect to database
+				String hostName = "restaurantleclairserver.database.windows.net"; // update me
+				String dbName = "MusicDB"; // update me
+				String user = "matt_leclair"; // update me
+				String password = "AzureRevature19"; // update me
+				
+				//2. Create a connection String
+				String url = String.format(
+						"jdbc:sqlserver://%s:1433;database=%s;user=%s;password=%s;encrypt=true;"
+								+ "hostNameInCertificate=*.database.windows.net;loginTimeout=30;",
+						hostName, dbName, user, password);
+				
+				Connection connection = null;
+				try
+				{
+					connection = DriverManager.getConnection(url);
+					
+					Statement statement = connection.createStatement();
+					
+					//String sampleDate = "1975-03-04";
+					//SimpleDateFormat simpleDate = new SimpleDateFormat("yyyy-mm-dd").parse(sampleDate);
+					//java.sql.Date sqlDate = new java.sql.Date(sampleDate.getTime());
+					
+					String sql = "select [artistName] from Music.Artist";
+					String insert = "insert into Music.Artist (artistId, artistName, age, activeSince, isLive)" 
+							+ " values(?, ?, ?, ?, ?)";
+					
+					PreparedStatement prepared = connection.prepareStatement(insert);
+					prepared.setInt(1,  13);
+					prepared.setString(2, "Frank Sinatra");
+					prepared.setInt(3, 65);
+					//prepared.setDate(4,"1975-03-09", simpleDate);
+					prepared.setInt(5,  1);
+					prepared.execute();
+					
+					ResultSet artists = statement.executeQuery(sql);
+					
+					while(artists.next())
+						System.out.println(artists.getString("artistName"));
+					artists.close();
+				}
+				
+				catch(Exception e)
+				{
+					e.printStackTrace();
+				}
+			}
+}

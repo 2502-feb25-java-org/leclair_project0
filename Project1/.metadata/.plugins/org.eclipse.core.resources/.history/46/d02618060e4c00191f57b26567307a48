@@ -1,0 +1,58 @@
+package com.matt;
+
+import java.io.IOException;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import org.apache.log4j.Logger;
+
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.matt.pojos.User;
+import com.matt.service.UserService;
+
+@WebServlet("/login")
+public class LoginServlet extends HttpServlet
+{
+	static UserService service = new UserService();
+	
+	private static Logger log = Logger.getLogger(LoginServlet.class);
+	@Override
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException 
+	{
+		ObjectMapper mapper = new ObjectMapper();
+		User inputUser = mapper.readValue(req.getInputStream(), User.class);
+		log.info("attempting to log in user -- " + inputUser.toString());
+		
+		
+		User logged = service.getByUsername(inputUser.getUsername());
+		
+		//if so, return JSON string of user
+		String out = "";
+		if(logged == null)
+			out = null;
+		else
+		{
+			if(inputUser.getPassword().equals(logged.getPassword()))
+				out = mapper.writeValueAsString(logged);
+			else
+				out = null;
+		}
+		
+		
+		//take in info from request, and return user if logged in properly, 
+		
+		
+		//get request body --req.getInputStream() and use objectmapper to read value
+	
+		//consult service layer (call methods) is user name/password valid?
+		
+		
+		
+		//else, return null
+		
+	}
+}
